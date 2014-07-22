@@ -6,8 +6,8 @@ import pprint
 NAME = "SqueezeControl"
 CLIENT_ID = "4f6c5882fe9cfc80ebf7ff815cd8b383"
 SERVER_ADDRESS = "192.168.1.74"
-ART         	= 'art--default.jpg'
-ICON     	= 'icon-default.png'
+ART         	= 'art-default.jpg'
+ICON     		= 'icon-default.png'
 
 
 TRACKS_URL = 'http://api.soundcloud.com/tracks.json?client_id=%s&filter=streamable&offset=%d&limit=30'
