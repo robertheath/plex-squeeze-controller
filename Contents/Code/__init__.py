@@ -40,7 +40,7 @@ def MainMenu():
 				   tagline=player.get_track_artist(), 
 				   summary=player.get_track_current_title(), 
 				   duration=player.get_track_duration(), 
-				   thumb = Resource.ContentsOfURLWithFallback("http://"+SERVER_ADDRESS+":9000/music/current/cover.jpg?player="+str(player.get_ref()))
+				   thumb = Resource.ContentsOfURLWithFallback("http://"+SERVER_ADDRESS+":9000/music/current/cover.jpg?player="+str(player.get_ref())+"&time="+time.time())
 				)
 		)
     
