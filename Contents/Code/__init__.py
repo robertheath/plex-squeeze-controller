@@ -47,11 +47,12 @@ def ProcessRequest(title, params, offset = 0, id = -1, type = "default"):
 	oc = ObjectContainer(title2 = player.get_name())
 	
 	for item in player.playlist_get_info():
-		songinfo = player.request("songinfo 0 100 track_id:"+str(item['id']))
+		track_title = player.request("songinfo 1 1 track_id:"+str(item['id']))[8:]
+		track_url = player.request("songinfo 2 1 track_id:"+str(item['id'])+" tags:u")[21:]
 
-		oc.add(DirectoryObject(key = item['position'],
-			title = "test",
-				   duration = item['duration']
+		oc.add(DirectoryObject(key = track_url,
+				       title = track_title,
+				       duration = int(item['duration'])
 				   )
 		       )
 
