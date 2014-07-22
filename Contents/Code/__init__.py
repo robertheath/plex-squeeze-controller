@@ -1,6 +1,6 @@
 from server import Server
 from player import Player
-import pprint
+import time
 
 
 NAME = "SqueezeControl"
