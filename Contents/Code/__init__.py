@@ -2,8 +2,8 @@ from server import Server
 from player import Player
 import time
 
+
 NAME = "SqueezeControl"
-SERVER_ADDRESS = "192.168.1.74"
 ART         	= 'art-default.jpg'
 ICON   		= 'icon-default.png'
 
@@ -18,7 +18,7 @@ def Start():
 ####################################################################################################
 @handler('/music/squeezecontrol', NAME)
 def MainMenu():
-    sc = Server(hostname=SERVER_ADDRESS, port=9090, username="", password="")
+    sc = Server(hostname=Prefs['lms_server_address'], port=Prefs['lms_server_cli_port'], username="", password="")
     sc.connect()
 
     oc = ObjectContainer()
@@ -31,7 +31,7 @@ def MainMenu():
 				   tagline=player.get_track_artist(), 
 				   summary=player.get_track_current_title(), 
 				   duration=player.get_track_duration(), 
-				   thumb = Resource.ContentsOfURLWithFallback("http://"+SERVER_ADDRESS+":9000/music/current/cover.jpg?player="+player_id+"&time="+current_time)
+				   thumb = Resource.ContentsOfURLWithFallback("http://"+Prefs['lms_server_address']+":"+Prefs['lms_server_port']+"/music/current/cover.jpg?player="+player_id+"&time="+current_time)
 				   )
 		   )
     
@@ -40,7 +40,7 @@ def MainMenu():
 ####################################################################################################
 @route('/music/squeezecontrol/{title}', params = dict, offset = int, allow_sync = True)
 def ProcessRequest(title, params, offset = 0, id = -1, type = "default"):
-	sc = Server(hostname=SERVER_ADDRESS, port=9090, username="", password="")
+	sc = Server(hostname=Prefs['lms_server_address'], port=Prefs['lms_server_cli_port'], username="", password="")
 	sc.connect()
 	
 	player = sc.get_player(title);

@@ -1,0 +1,20 @@
+[
+        {
+            "id":           "lms_server_address",
+            "label":        "Logitech Media Server IP Address",
+            "type": "text",
+            "default": "localhost"
+        },
+        {
+            "id":           "lms_server_port",
+            "label":        "Logitech Media Server Port",
+            "type": "text",
+            "default": "9000"
+        },
+        {
+            "id":           "lms_server_cli_port",
+            "label":        "Logitech Media Server CLI Port",
+            "type": "text",
+            "default": "9090"
+        }
+]
